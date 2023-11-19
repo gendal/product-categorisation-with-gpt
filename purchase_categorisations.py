@@ -40,7 +40,7 @@ def check_purchase_validity(client, item):
     completion = client.chat.completions.create(
         model="gpt-4-1106-preview", # Specifically designed to reliably output JSON
         response_format={ "type": "json_object" },
-        #seed = 1, # To test deterministic output. Seems to be very slow if set
+        seed = 1700412680943, # To test deterministic output. Arbitrarily chose UNIX timestamp around when code was written
         messages=[
           {"role":
              "system",

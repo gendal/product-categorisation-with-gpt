@@ -8,6 +8,7 @@ a toy gun
 a snickers bar
 ten snickers bars
 a book by Roald Dahl
-a book by JK Rowling
+a book by Stephen King
 a DVD rated '18 or over'
 a DVD rated 'parental guidance'
+a DVD rated 'suitable for all'
