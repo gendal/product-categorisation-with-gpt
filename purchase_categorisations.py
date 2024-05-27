@@ -6,7 +6,16 @@
 from openai import OpenAI
 import json
 
-client = OpenAI()
+myvars = {}
+api_key="" # Do not set it here!!!
+with open(".env", "r") as myfile:
+    for line in myfile:
+        line = line.strip()
+        name, var = line.partition("=")[::2]
+        if name=="OPENAI_API_KEY":
+            api_key = var
+
+client = OpenAI(api_key=api_key)
 
 prompt = """
   Imagine I am a parent and I want to protect my children from harm. 
@@ -25,7 +34,7 @@ prompt = """
     }]
 """
 
-expected_fingerprint_to_detect_determinism_loss = "fp_a24b4d720c" # As observed for gpt-4-1106-preview on 2023-11-19
+expected_fingerprint_to_detect_determinism_loss = "fp_4fa1855c85" # As observed for gpt-4-1106-preview on 2024-04-16 (but no longer stable??)
 
 def check_purchase_validity(client, item):
     """
